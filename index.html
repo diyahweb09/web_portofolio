@@ -12,12 +12,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #333;
+    background: #0f0f0f;
+    color: #fff;
 }
 
 /* NAVBAR */
@@ -25,8 +26,8 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
@@ -45,7 +46,7 @@ body {
 
 .nav-logo {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .nav-menu {
@@ -56,8 +57,12 @@ body {
 
 .nav-menu a {
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff4d8d;
 }
 
 /* HERO */
@@ -65,48 +70,52 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    color: white;
     text-align: center;
+    background: linear-gradient(135deg, #ff4d8d, #7b2ff7);
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 .hero span {
-    font-weight: 700;
+    color: #ffe3ec;
 }
 
 .hero p {
     margin: 15px 0;
+    color: #f1f1f1;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background: white;
-    color: #333;
+    color: #111;
+    border-radius: 30px;
     text-decoration: none;
-    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 /* SECTION */
 .section {
-    padding: 80px 0;
+    padding: 90px 0;
     text-align: center;
 }
 
 .section-title {
-    margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
 }
 
 /* ABOUT */
 .about-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    gap: 40px;
     text-align: left;
 }
 
@@ -115,7 +124,7 @@ body {
 }
 
 .progress-bar {
-    background: #eee;
+    background: #333;
     height: 8px;
     border-radius: 5px;
     margin: 5px 0 15px;
@@ -123,11 +132,10 @@ body {
 
 .progress {
     height: 100%;
-    background: #4facfe;
-    border-radius: 5px;
+    background: linear-gradient(90deg, #ff4d8d, #7b2ff7);
 }
 
-/* PROJECT */
+/* PORTFOLIO */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
@@ -135,48 +143,79 @@ body {
 }
 
 .project-card {
-    background: #fff;
-    border-radius: 10px;
+    position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 15px;
 }
 
 .project-card img {
     width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
 }
 
 .project-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 15px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
 }
 
 /* CONTACT */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-width: 500px;
     margin: auto;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+}
+
+.contact-form button {
+    border: none;
+    cursor: pointer;
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
     padding: 20px;
-    background: #111;
-    color: white;
+    background: #000;
+    color: #aaa;
+}
+
+/* ANIMATION */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
     .about-content {
         flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
     }
 }
 </style>
@@ -190,63 +229,68 @@ body {
     <div class="nav-logo">Diyah</div>
     <ul class="nav-menu">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#projects">Portofolio</a></li>
+        <li><a href="#contact">Kontak</a></li>
     </ul>
 </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-<div class="container">
+<div class="container fade-in">
     <h1>Halo, Saya <span>Diyah</span></h1>
-    <p>siswi smk krian 1 | XI Rekayasa perangkat lunak </p>
-    <a href="#projects" class="btn">Lihat Project</a>
+    <p>Makeup Artist | SMK Krian 1 Sidoarjo</p>
+    <a href="#projects" class="btn">Lihat Karya</a>
 </div>
 </section>
 
 <!-- ABOUT -->
 <section class="section" id="about">
-<div class="container">
-    <h2 class="section-title">About Me</h2>
+<div class="container fade-in">
+    <h2 class="section-title">Tentang Saya</h2>
 
     <div class="about-content">
         <div class="about-text">
-            <p>Saya adalah siswa kelas XI jurusan rekayasa perangkat lunak  yang passionate dengan dunia Editing. Selama belajar di SMK, saya mendapatkan berbagai pengetahuan melalui kegiatan sekolah dan belajar mandiri.</p>
+            <p>
+            Saya adalah siswa SMK Krian 1 Sidoarjo yang memiliki passion di dunia makeup.
+            Saya fokus membuat tampilan elegan, natural, hingga glam sesuai kebutuhan client.
+            </p>
         </div>
 
         <div class="about-skills">
-            <p>HTML & CSS</p>
+            <p>Natural Makeup</p>
             <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
 
-            <p>JavaScript</p>
-            <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
+            <p>Glam Makeup</p>
+            <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
+
+            <p>Makeup Wisuda</p>
+            <div class="progress-bar"><div class="progress" style="width:80%"></div></div>
         </div>
     </div>
 </div>
 </section>
 
-<!-- PROJECT -->
+<!-- PORTFOLIO -->
 <section class="section" id="projects">
-<div class="container">
-    <h2 class="section-title">Projects</h2>
+<div class="container fade-in">
+    <h2 class="section-title">Portofolio</h2>
 
     <div class="projects-grid">
         <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400">
-            <div class="project-info">
-                <h3>E-Commerce</h3>
-                <p>Website toko online</p>
-            </div>
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400">
+            <div class="project-info">Natural Makeup</div>
         </div>
 
         <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400">
-            <div class="project-info">
-                <h3>Portfolio</h3>
-                <p>Website pribadi</p>
-            </div>
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400">
+            <div class="project-info">Glam Makeup</div>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400">
+            <div class="project-info">Makeup Wisuda</div>
         </div>
     </div>
 </div>
@@ -254,13 +298,13 @@ body {
 
 <!-- CONTACT -->
 <section class="section" id="contact">
-<div class="container">
-    <h2 class="section-title">Contact</h2>
+<div class="container fade-in">
+    <h2 class="section-title">Kontak</h2>
 
-    <form class="contact-form">
-        <input type="text" placeholder="Nama">
-        <input type="email" placeholder="Email">
-        <textarea placeholder="Pesan"></textarea>
+    <form class="contact-form" onsubmit="kirimPesan(event)">
+        <input type="text" placeholder="Nama" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Pesan" required></textarea>
         <button class="btn">Kirim</button>
     </form>
 </div>
@@ -268,8 +312,28 @@ body {
 
 <!-- FOOTER -->
 <footer class="footer">
-    <p>© 2026 Diyah</p>
+    <p>© 2026 Diyah Makeup Artist</p>
 </footer>
+
+<script>
+// ANIMASI SCROLL
+const faders = document.querySelectorAll('.fade-in');
+
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add('show');
+        }
+    });
+});
+
+// FORM ALERT
+function kirimPesan(e){
+    e.preventDefault();
+    alert("Pesan berhasil dikirim!");
+}
+</script>
 
 </body>
 </html>
