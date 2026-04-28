@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Diyah</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.nav-logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.hero span {
+    font-weight: 700;
+}
+
+.hero p {
+    margin: 15px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: white;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* SECTION */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* ABOUT */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: left;
+}
+
+.about-text, .about-skills {
+    flex: 1;
+}
+
+.progress-bar {
+    background: #eee;
+    height: 8px;
+    border-radius: 5px;
+    margin: 5px 0 15px;
+}
+
+.progress {
+    height: 100%;
+    background: #4facfe;
+    border-radius: 5px;
+}
+
+/* PROJECT */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.project-card img {
+    width: 100%;
+}
+
+.project-info {
+    padding: 15px;
+}
+
+/* CONTACT */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .about-content {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="container nav-container">
+    <div class="nav-logo">Diyah</div>
+    <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container">
+    <h1>Halo, Saya <span>Diyah</span></h1>
+    <p>Web Developer & Designer</p>
+    <a href="#projects" class="btn">Lihat Project</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="container">
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-content">
+        <div class="about-text">
+            <p>Saya adalah web developer yang fokus pada website modern dan responsive.</p>
+        </div>
+
+        <div class="about-skills">
+            <p>HTML & CSS</p>
+            <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
+
+            <p>JavaScript</p>
+            <div class="progress-bar"><div class="progress" style="width:75%"></div></div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- PROJECT -->
+<section class="section" id="projects">
+<div class="container">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-grid">
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400">
+            <div class="project-info">
+                <h3>E-Commerce</h3>
+                <p>Website toko online</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400">
+            <div class="project-info">
+                <h3>Portfolio</h3>
+                <p>Website pribadi</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+<div class="container">
+    <h2 class="section-title">Contact</h2>
+
+    <form class="contact-form">
+        <input type="text" placeholder="Nama">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Pesan"></textarea>
+        <button class="btn">Kirim</button>
+    </form>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Diyah</p>
+</footer>
+
+</body>
+</html>
